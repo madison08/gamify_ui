@@ -105,10 +105,15 @@ class _HomeScreenState extends State<HomeScreen> {
             height: _deviceHeight * 0.13,
           ),
           _featuredGamesInfoWidget(),
-          ScrollableGameWidget(
-              height: _deviceHeight * 0.24,
-              width: _deviceWidth,
-              gamesData: games),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: _deviceHeight * 0.02,
+            ),
+            child: ScrollableGameWidget(
+                height: _deviceHeight * 0.24,
+                width: _deviceWidth,
+                gamesData: games),
+          ),
         ],
       ),
     );
