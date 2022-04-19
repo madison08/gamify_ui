@@ -23,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Stack(
       children: <Widget>[
         _featuredgamesWidget(),
+        _gradientBoxWidget(),
       ],
     ));
   }
@@ -31,23 +32,41 @@ class _HomeScreenState extends State<HomeScreen> {
     return SizedBox(
       height: _deviceHeight * 0.50,
       width: _deviceWidth,
-      child: Container(
-        child: PageView(
-          scrollDirection: Axis.horizontal,
-          children: featuredGames.map((_game) {
-            return Container(
-              decoration: BoxDecoration(
-                color: Colors.yellow,
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(
-                    _game.images![0].url.toString(),
-                  ),
+      child: PageView(
+        scrollDirection: Axis.horizontal,
+        children: featuredGames.map((_game) {
+          return Container(
+            decoration: BoxDecoration(
+              // color: Colors.yellow,
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: NetworkImage(
+                  _game.images![0].url.toString(),
                 ),
               ),
-            );
-          }).toList(),
-        ),
+            ),
+          );
+        }).toList(),
+      ),
+    );
+  }
+
+  Widget _gradientBoxWidget() {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Container(
+        height: _deviceHeight * 0.80,
+        width: _deviceWidth,
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+          colors: [
+            Color.fromRGBO(35, 45, 59, 1.0),
+            Colors.transparent,
+          ],
+          stops: [0.65, 1.0],
+          begin: Alignment.bottomCenter,
+          end: Alignment.topCenter,
+        )),
       ),
     );
   }
