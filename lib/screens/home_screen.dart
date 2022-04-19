@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:gamify_flutter_ui/widgets/scrollable_games_widget.dart';
 import '../data.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -75,15 +76,16 @@ class _HomeScreenState extends State<HomeScreen> {
         height: _deviceHeight * 0.75,
         width: _deviceWidth,
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-          colors: [
-            Color.fromRGBO(35, 45, 59, 1.0),
-            Colors.transparent,
-          ],
-          stops: [0.65, 1.0],
-          begin: Alignment.bottomCenter,
-          end: Alignment.topCenter,
-        )),
+          gradient: LinearGradient(
+            colors: [
+              Color.fromRGBO(35, 45, 59, 1.0),
+              Colors.transparent,
+            ],
+            stops: [0.65, 1.0],
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+          ),
+        ),
       ),
     );
   }
@@ -103,6 +105,10 @@ class _HomeScreenState extends State<HomeScreen> {
             height: _deviceHeight * 0.13,
           ),
           _featuredGamesInfoWidget(),
+          ScrollableGameWidget(
+              height: _deviceHeight * 0.24,
+              width: _deviceWidth,
+              gamesData: games),
         ],
       ),
     );
