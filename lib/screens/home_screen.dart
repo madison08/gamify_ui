@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:gamify_flutter_ui/data.dart';
+import '../data.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -24,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
       children: <Widget>[
         _featuredgamesWidget(),
         _gradientBoxWidget(),
+        _topLayerWidget(),
       ],
     ));
   }
@@ -55,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
-        height: _deviceHeight * 0.80,
+        height: _deviceHeight * 0.70,
         width: _deviceWidth,
         decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -67,6 +68,54 @@ class _HomeScreenState extends State<HomeScreen> {
           begin: Alignment.bottomCenter,
           end: Alignment.topCenter,
         )),
+      ),
+    );
+  }
+
+  Widget _topLayerWidget() {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: _deviceWidth * 0.05,
+        vertical: _deviceHeight * 0.01,
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+        children: <Widget>[
+          _topBarWidget(),
+        ],
+      ),
+    );
+  }
+
+  Widget _topBarWidget() {
+    return SizedBox(
+      height: _deviceHeight * 0.13,
+      width: _deviceWidth,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.max,
+        children: <Widget>[
+          Icon(
+            Icons.menu,
+            size: 30.0,
+          ),
+          Row(
+            children: <Widget>[
+              Icon(
+                Icons.search,
+                size: 30.0,
+              ),
+              SizedBox(
+                width: _deviceWidth * 0.03,
+              ),
+              Icon(
+                Icons.notifications_none,
+                size: 30.0,
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
