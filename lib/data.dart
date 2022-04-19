@@ -68,18 +68,10 @@ List<Game> games2 = [
     title: "Grand Theft Auto V",
     images: [
       GameImage(
-        url:
-            "https://gpstatic.com/acache/26/25/1/uk/packshot-7136bdab871d6b2c8f07ccc9ad33b4d0.jpg",
-      ),
+          url:
+              "https://gpstatic.com/acache/26/25/1/uk/packshot-7136bdab871d6b2c8f07ccc9ad33b4d0.jpg"),
     ],
     studio: "Rockstar Games",
-  ),
-  Game(
-    title: "The Last of Us Part II",
-    images: [
-      GameImage(url: "https://mvpo.us/img/P6253.jpg"),
-    ],
-    studio: "Naughty Dog",
   ),
   Game(
     title: "Sekiro: Shadows Die Twice",

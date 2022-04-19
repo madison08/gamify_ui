@@ -110,9 +110,21 @@ class _HomeScreenState extends State<HomeScreen> {
               vertical: _deviceHeight * 0.02,
             ),
             child: ScrollableGameWidget(
-                height: _deviceHeight * 0.24,
-                width: _deviceWidth,
-                gamesData: games),
+              height: _deviceHeight * 0.24,
+              width: _deviceWidth,
+              gamesData: games,
+            ),
+          ),
+          _featuredGameBannerWidget(),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: _deviceHeight * 0.02,
+            ),
+            child: ScrollableGameWidget(
+              height: _deviceHeight * 0.13,
+              width: _deviceWidth,
+              gamesData: games2,
+            ),
           ),
         ],
       ),
@@ -192,6 +204,19 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
+    );
+  }
+
+  _featuredGameBannerWidget() {
+    return Container(
+      height: _deviceHeight * 0.15,
+      width: _deviceWidth,
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              fit: BoxFit.cover,
+              image: NetworkImage(
+                featuredGames[3].images![0].url.toString(),
+              ))),
     );
   }
 }

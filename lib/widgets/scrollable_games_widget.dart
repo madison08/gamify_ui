@@ -33,6 +33,7 @@ class ScrollableGameWidget extends StatelessWidget {
                 right: width * 0.030,
               ),
               child: Column(
+                mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
