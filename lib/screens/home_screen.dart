@@ -72,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
-        height: _deviceHeight * 0.70,
+        height: _deviceHeight * 0.75,
         width: _deviceWidth,
         decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -99,6 +99,9 @@ class _HomeScreenState extends State<HomeScreen> {
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           _topBarWidget(),
+          SizedBox(
+            height: _deviceHeight * 0.13,
+          ),
           _featuredGamesInfoWidget(),
         ],
       ),
@@ -153,19 +156,24 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             maxLines: 2,
           ),
+          SizedBox(
+            height: _deviceHeight * 0.01,
+          ),
           Row(
             children: featuredGames.map((_game) {
+              bool _isActive =
+                  _game.title == featuredGames[_selectedPage].title;
+              print(_isActive);
               var _circleRadius = _deviceHeight * 0.004;
               print(_game);
               return Container(
                 margin: EdgeInsets.only(
-                  right: 10.0,
-                  top: 5.0,
+                  right: _deviceWidth * 0.015, //10.0,
                 ),
                 height: _circleRadius * 2,
                 width: _circleRadius * 2,
                 decoration: BoxDecoration(
-                  color: Colors.grey,
+                  color: _isActive ? Colors.green : Colors.grey,
                   borderRadius: BorderRadius.circular(30),
                 ),
               );
